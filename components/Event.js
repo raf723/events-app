@@ -1,7 +1,7 @@
 import React from 'react'
 import { View, Text, StyleSheet, Image } from 'react-native'
 
-export const Event = (props) => {
+const Event = (props) => {
   let options = { weekday: 'long', month: 'long', day: 'numeric' }
   let localDate = new Date(props.date)
 

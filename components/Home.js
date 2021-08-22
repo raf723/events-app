@@ -24,9 +24,9 @@ const Home = ({ navigation }) => {
 
   return (
     <View style={ styles.container }>
-      <View style={ styles.eventWrapper }>
+      <ScrollView style={ styles.eventsScroll }>
         <Text style={ styles.sectionTitle }>Upcoming events</Text>
-        <ScrollView style={ styles.eventsScroll }>
+        <View style={ styles.eventsList }>
           { events.map((event, index) => {
             return (
               <TouchableOpacity key={ index } onPress={ () => eventHandler(event) }>
@@ -34,8 +34,8 @@ const Home = ({ navigation }) => {
               </TouchableOpacity>
             )
           }) }
-        </ScrollView>
-      </View>
+        </View>
+      </ScrollView>
     </View>
   )
 }
@@ -46,9 +46,10 @@ const styles = StyleSheet.create({
     backgroundColor: '#E8EAED'
   },
 
-  eventWrapper: {
+  eventsScroll: {
     paddingTop: 70,
-    paddingHorizontal: 20
+    paddingHorizontal: 20,
+    marginBottom: 30
   },
 
   sectionTitle: {
@@ -56,7 +57,7 @@ const styles = StyleSheet.create({
     fontWeight: 'bold'
   },
 
-  eventsScroll: {
+  eventsList: {
     marginTop: 16,
     marginBottom: 50
   }
