@@ -1,7 +1,10 @@
+// Each event component should show the thumbnail, title and date
+
 import React from 'react'
 import { View, Text, StyleSheet, Image } from 'react-native'
 
 const Event = (props) => {
+  // User friendly date i.e. (Tue, 8 April)
   let options = { weekday: 'long', month: 'long', day: 'numeric' }
   let localDate = new Date(props.date)
 

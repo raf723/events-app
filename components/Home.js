@@ -1,5 +1,7 @@
+// Home page fetching events from API and displaying a list of Event components
+
 import React, { useState, useEffect } from 'react'
-import { StyleSheet, Text, View, TouchableOpacity, ScrollView } from 'react-native'
+import { StyleSheet, Text, View, TouchableOpacity, ScrollView, Alert } from 'react-native'
 
 // Component imports
 import Event from './Event'
@@ -10,9 +12,13 @@ const Home = ({ navigation }) => {
   // Fetch events and set to state
   useEffect(() => {
     async function getEvents() {
-      const eventbrite = await fetch(`https://thedistance.co.uk/wp-content/uploads/2020/01/eventbrite.json`)
-      const response = await eventbrite.json()
-      setEvents(response.events)
+      try {
+        const eventbrite = await fetch(`https://thedistance.co.uk/wp-content/uploads/2020/01/eventbrite.json`)
+        const response = await eventbrite.json()
+        setEvents(response.events)
+      } catch {
+        Alert.alert('Error', 'Cannot fetch events at the moment. Please try again later.')
+      }
     }
     getEvents();
   }, [])

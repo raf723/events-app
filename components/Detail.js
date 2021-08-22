@@ -1,3 +1,5 @@
+// Display event's HTML in webview with event title and external URL button in header
+
 import React, { useEffect } from 'react'
 import { View, StyleSheet, Linking } from 'react-native'
 import { Icon } from "react-native-elements";
