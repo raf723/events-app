@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react'
-import { View, StyleSheet, Button, Linking } from 'react-native'
-import WebView from 'react-native-webview'
+import { View, StyleSheet, Linking } from 'react-native'
 import { Icon } from "react-native-elements";
+import WebView from 'react-native-webview'
 
 const Detail = (props) => {
   const event = props.route.params.event
@@ -14,10 +14,6 @@ const Detail = (props) => {
 
       // Add button to the end of the header which opens event url
       headerRight: () => (
-        /*<Button
-          title='Open'
-          onPress={ () => Linking.openURL(event.url) }
-        />*/
         <View style={styles.iconContainer}>
           <Icon type="ionicon" name='open-outline' color='#147EFB' onPress={ () => Linking.openURL(event.url) } />
         </View>

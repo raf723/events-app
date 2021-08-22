@@ -7,6 +7,7 @@ import Event from './Event'
 const Home = ({ navigation }) => {
   const [ events, setEvents ] = useState([])
 
+  // Fetch events and set to state
   useEffect(() => {
     async function getEvents() {
       const eventbrite = await fetch(`https://thedistance.co.uk/wp-content/uploads/2020/01/eventbrite.json`)
@@ -16,6 +17,7 @@ const Home = ({ navigation }) => {
     getEvents();
   }, [])
 
+  // Navigate to detail page on event pressed
   const eventHandler = (selectedEvent) => {
     navigation.push('Detail', {
       event: selectedEvent
@@ -27,6 +29,7 @@ const Home = ({ navigation }) => {
       <ScrollView style={ styles.eventsScroll }>
         <Text style={ styles.sectionTitle }>Upcoming events</Text>
         <View style={ styles.eventsList }>
+          {/* For each event in the state's events array, render a touchable component */}
           { events.map((event, index) => {
             return (
               <TouchableOpacity key={ index } onPress={ () => eventHandler(event) }>
