@@ -7,4 +7,5 @@ My first React Native app which displays a list of events from an API that users
 ## Installation
 1. Clone the repo
 2. Run `yarn` to install the node modules
-3. Run `yarn ios` to 
+3. Run `yarn start` to launch the Metro Bundler
+4. You will be presented with a list of options on the left-hand side to launch the app on your simulator or device
